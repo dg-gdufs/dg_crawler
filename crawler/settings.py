@@ -10,6 +10,7 @@ SPIDER_MODULES = ['crawler.spiders']
 NEWSPIDER_MODULE = 'crawler.spiders'
 ROBOTSTXT_OBEY = False
 COOKIES_ENABLED = False
+FEED_EXPORT_ENCODING = 'utf-8'
 
 LOG_LEVEL = LOG_DEFAULT_LEVEL # 日志输出等级
 LOG_FILE = CheckUtil.check_path(LOG_DEFAULT_HOME) + '/default[{}].txt'.format(DateUtil.time_now_formate().split(' ')[0]) # 日志默认输出
