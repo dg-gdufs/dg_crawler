@@ -1,8 +1,5 @@
 # encoding: utf-8
 
-from scrapy.exceptions import IgnoreRequest
-from scrapy.downloadermiddlewares.retry import RetryMiddleware
-
 class ReplyDownloaderMiddleware:
     '''
     reply下载中间件
@@ -15,7 +12,3 @@ class ReplyDownloaderMiddleware:
             return response
         except Exception as e:
             spider.send_log(3, "ReplyDownloaderMiddleware error ==> {} ==> url:<{}>".format(e, response.url))
-
-    def process_exception(self, request, exception, spider):
-        if isinstance(exception, RetryMiddleware.EXCEPTIONS_TO_RETRY):
-            spider.send_log(3, 'downloader error ==> ({}) ==> url:<{}>'.format(exception, request.url))
